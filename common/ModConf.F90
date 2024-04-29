@@ -172,6 +172,9 @@ contains
       MPI_COMM_Ewald = MPI_COMM_WORLD
     end if
 
+    ! PhysEwald = .true.
+    ! FourierEwald = .false.
+
     ! root indicator for MPI_Comm_Ewald
     call MPI_Comm_Rank(MPI_Comm_Ewald, nodeNum, ierr)
     rootEwald = (nodeNum == 0)

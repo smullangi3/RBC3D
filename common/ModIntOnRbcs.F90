@@ -11,6 +11,9 @@ module ModIntOnRbcs
   use ModPolarPatch
   use ModRbcSingInt
 
+  use ModDirectSolver
+  use ModFMM
+
   implicit none
 
   private
@@ -42,6 +45,10 @@ contains
     integer :: ierr
 
     if (nrbc == 0) return
+
+    ! call ExplicitSolve(slist_rbc, tlist, v)
+    ! call FMM_AddVelocity(slist_rbc, tlist, v, c1, c2)
+    ! return
 
     slist => slist_rbc
     do i = 1, tlist%nPoint

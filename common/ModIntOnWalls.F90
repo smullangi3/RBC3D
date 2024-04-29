@@ -10,6 +10,9 @@ module ModIntOnWalls
   use ModBasicMath
   use ModEwaldFunc
 
+  use ModDirectSolver
+  use ModFMM
+
   implicit none
 
   private
@@ -48,6 +51,9 @@ contains
     integer :: ierr
 
     if (nwall == 0) return
+
+    ! call ExplicitSolve(slist_wall, tlist, v)
+    ! return
 
     ! Self-interactions
     first_surfId = tlist%indx(1, 0)
@@ -183,6 +189,8 @@ contains
     real(WP) :: rhs(3), lhs(3, 3, 3), values(9)
     integer :: irows(3), icols(3)
     integer :: ierr
+
+    ! return
 
     tlist => tlist_wall
     slist => slist_wall

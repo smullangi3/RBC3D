@@ -114,7 +114,7 @@ contains
       call KSPGetIterationNumber(ksp_lhs, niter, ierr)
       call KSPGetResidualNorm(ksp_lhs, residual, ierr)
 
-      print *, 'iterations'
+      ! print *, 'iterations'
       if (rootWorld) then
         write (*, '(A,I5,A,ES12.2)') 'niter = ', niter, ' residual = ', residual
       end if
@@ -496,6 +496,8 @@ contains
     ! Add background velocities
     c1 = 2.       !COEF
     do ii = 1, npoint
+      ! c1 = tlist%x(ii,2)
+      ! c1 = ((9* c1) - (c1 ** 2))/10
       v(ii, :) = v(ii, :) + c1*vBkg(:)/tlist%Acoef(ii)   !COEF
 !       v(ii,:) = v(ii,:) + c1*vBkg(:)/(1.+tlist%lam(ii))   !COEF
     end do

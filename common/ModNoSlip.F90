@@ -12,6 +12,7 @@ module ModNoSlip
   use ModSourceList
   use ModTargetList
   use ModSphPk
+  use ModBasicMath
 
   implicit none
 
